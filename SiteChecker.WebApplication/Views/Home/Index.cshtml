@@ -1,0 +1,39 @@
+﻿@model IEnumerable<SiteChecker.UrlCheckTask>
+
+@{
+    ViewData["Title"] = "Мониторинг доступности сайтов";
+}
+
+<h2>Мониторинг доступности сайтов</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Url)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.LastCheckDateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HttpStatusCode)
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastCheckDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HttpStatusCode)
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

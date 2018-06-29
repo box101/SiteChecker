@@ -1,0 +1,57 @@
+﻿@model SiteChecker.UrlCheckTask
+
+@{
+    ViewData["Title"] = "Удаление";
+}
+
+<h2>Удаление</h2>
+
+<h3>Удалить?</h3>
+<div>
+    <h4>Задача мониторинга доступности сайта</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Url)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Login)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Login)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastCheckResultJson)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastCheckResultJson)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastCheckDateTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastCheckDateTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HttpStatusCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HttpStatusCode)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Удалить" class="btn btn-default" /> |
+        <a asp-action="Index">Список</a>
+    </form>
+</div>

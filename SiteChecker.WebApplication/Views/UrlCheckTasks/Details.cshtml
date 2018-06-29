@@ -1,0 +1,54 @@
+﻿@model SiteChecker.UrlCheckTask
+
+@{
+    ViewData["Title"] = "Подробно";
+}
+
+<h2>Подробно</h2>
+
+<div>
+    <h4>Задача мониторинга доступности сайта</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Url)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Login)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Login)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastCheckResultJson)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastCheckResultJson)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastCheckDateTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastCheckDateTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HttpStatusCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HttpStatusCode)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Список</a>
+</div>
