@@ -19,14 +19,14 @@
             dataStoreInitializer.Initialize(dataStore);
 
             // Количество задач в репозитории
-            var taskCountInDataStore = dataStore.GetQueriable<UrlCheckTask>().Count();
+            var taskCountInDataStore = dataStore.GetAll<UrlCheckTask>().Count();
 
             // Количество урлов для проверки в инициализаторе репозитория
             var dataStoreInitializerUrlCount = SiteCheckerDataStoreInitializer.UrlList.Distinct().Count();
 
             Assert.True(taskCountInDataStore > 0);
             Assert.Equal(dataStoreInitializerUrlCount, taskCountInDataStore);
-            Assert.Equal(0, dataStore.GetQueriable<UrlCheckTaskResult>().Count());
+            Assert.Equal(0, dataStore.GetAll<UrlCheckTaskResult>().Count());
         }
     }
 }

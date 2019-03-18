@@ -14,7 +14,7 @@
             this.dbContext = dbContext;
         }
 
-        public IQueryable<T> GetQueriable<T>() where T: class, new()
+        public IQueryable<T> GetAll<T>() where T: class, new()
         {
             return dbContext.Set<T>().AsQueryable();
         }

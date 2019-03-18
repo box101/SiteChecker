@@ -31,7 +31,7 @@
             var options   = new DbContextOptionsBuilder<SiteCheckerDbContext>().UseInMemoryDatabase("Test_UrlCheckTask_UrlMustBeUnique").Options;
             var dataStore = new DbContextDataStore(new SiteCheckerDbContext(options));
 
-            Assert.Equal(0, dataStore.GetQueriable<UrlCheckTask>().Count());
+            Assert.Equal(0, dataStore.GetAll<UrlCheckTask>().Count());
 
             var newTask = new UrlCheckTask { Url = "123" };
 

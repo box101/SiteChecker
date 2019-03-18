@@ -86,7 +86,7 @@
         /// <inheritdoc />
         public IList<UrlCheckTask> GetTasksList()
         {
-            return this.dataStore.GetQueriable<UrlCheckTask>().ToList();
+            return this.dataStore.GetAll<UrlCheckTask>().ToList();
         }
 
         /// <inheritdoc />

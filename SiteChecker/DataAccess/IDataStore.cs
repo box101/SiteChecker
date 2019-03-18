@@ -10,7 +10,7 @@
     public interface IDataStore 
     {
         /// <summary> Запрос к списку объектов </summary>
-        IQueryable<T> GetQueriable<T>() where T: class, new();
+        IQueryable<T> GetAll<T>() where T: class, new();
 
         /// <summary> Изменение объекта </summary>
         void Update<T>(T entity) where T: class, new();

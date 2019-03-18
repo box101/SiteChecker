@@ -28,14 +28,14 @@
             dataStoreInitializer.Initialize(dataStore);
 
             // Количество задач в репозитории
-            var taskCountInDataStore = dataStore.GetQueriable<UrlCheckTask>().Count();
+            var taskCountInDataStore = dataStore.GetAll<UrlCheckTask>().Count();
 
             // Количество урлов для проверки в инициализаторе репозитория
             var dataStoreInitializerUrlCount = SiteCheckerDataStoreInitializer.UrlList.Distinct().Count();
 
             Assert.True(taskCountInDataStore > 0);
             Assert.Equal(dataStoreInitializerUrlCount, taskCountInDataStore);
-            Assert.Equal(0, dataStore.GetQueriable<UrlCheckTaskResult>().Count());
+            Assert.Equal(0, dataStore.GetAll<UrlCheckTaskResult>().Count());
 
             var urlCheckTaskService = new UrlCheckTaskService(httpUrlChecker, dataStore, loggerFactory);
 
@@ -47,7 +47,7 @@
             urlCheckTaskService.ProcessAllTasks(waitMillisec);
 
             // Обработка задач была вызвана 4 раза. Результаты проверок сохраняются в БД. Количество выполненых проверок должно быть равно х4 от количества задач.
-            var checkResultCount = dataStore.GetQueriable<UrlCheckTaskResult>().Count();
+            var checkResultCount = dataStore.GetAll<UrlCheckTaskResult>().Count();
             Assert.Equal(taskCountInDataStore * 4, checkResultCount);
         }
     }

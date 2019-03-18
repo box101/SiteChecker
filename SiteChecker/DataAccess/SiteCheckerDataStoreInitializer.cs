@@ -7,7 +7,7 @@
     {
         public void Initialize(IDataStore dataStore)
         {
-            if (dataStore.GetQueriable<UrlCheckTask>().Any()) return;
+            if (dataStore.GetAll<UrlCheckTask>().Any()) return;
 
             using (var transaction = dataStore.BeginTransaction())
             {

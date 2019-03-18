@@ -35,7 +35,7 @@
 
             new SiteCheckerDataStoreInitializer().Initialize(dataStore);
 
-            dataStore.GetQueriable<UrlCheckTask>().ToList().ForEach(x => Console.WriteLine(x.Url));
+            dataStore.GetAll<UrlCheckTask>().ToList().ForEach(x => Console.WriteLine(x.Url));
 
             var urlCheckTaskService = new UrlCheckTaskService(
                 httpUrlChecker,
